@@ -29,19 +29,48 @@ class Airplane {
 
 /*
   TASK 1
-    - Write a Person class whose constructor initializes `name` and `age` from arguments.
-    - All instances of Person should also initialize with an empty `stomach` array.
-    - Give instances of Person the ability to `.eat("someFood")`:
-        + When eating an edible, it should be pushed into the `stomach`.
-        + The `eat` method should have no effect if there are 10 items in the `stomach`.
-    - Give instances of Person the ability to `.poop()`:
-        + When an instance poops, its `stomach` should empty.
-    - Give instances of Person a method `.toString()`:
-        + It should return a string with `name` and `age`. Example: "Mary, 50"
+*/
+/*
+  TASK 1
+      - Write a Person class whose constructor initializes `name` and `age` from arguments.
+      - All instances of Person should also initialize with an empty `stomach` array.
+      - Give instances of Person the ability to `.eat("someFood")`:
+          + When eating an edible, it should be pushed into the `stomach`.
+          + The `eat` method should have no effect if there are 10 items in the `stomach`.
+      - Give instances of Person the ability to `.poop()`:
+          + When an instance poops, its `stomach` should empty.
+      - Give instances of Person a method `.toString()`:
+          + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
 
-class Person {}
+//?   Write a Person class whose constructor initializes `name` and `age` from arguments.
+class Person {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+    this.stomach = [];
+  }
+  eat(someFood) {
+    if (this.stomach.length < 10) {
+      this.stomach.push(someFood);
+    }
+  }
+  poop() {
+    this.stomach = [];
+  }
+  toString() {
+    return `${this.name}, ${this.age}`;
+  }
+}
 
+const neo = new Person({
+  name: "joey",
+  age: "39",
+});
+
+/*
+  TASK 2
+*/
 /*
   TASK 2
     - Write a Car class whose constructor initializes `model` and `milesPerGallon` from arguments.
@@ -56,7 +85,20 @@ class Person {}
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
-class Car {}
+class Car {
+  constructor(model, milesPerGallon) {
+    this.model = model;
+    this.milesPerGallon = milesPerGallon;
+    this.tank = 0; //? should this be 'i' since we will have it increase incremently?
+    this.odometer = 0; //? same
+  }
+  fill(gallons) {
+    return (this.tank = this.tank + gallons);
+  }
+  drive(distance) {
+    return (this.odometer += distance);
+  }
+}
 
 /*
   TASK 3
