@@ -184,7 +184,7 @@ class Student extends Lambdasian {
     this.location = attributes.location;
     this.previousBackground = attributes.previousBackground;
     this.className = attributes.className;
-    this.favSubjects = ["HTML", "CSS", "JS"];
+    this.favSubjects = ["HTML", "CSS", "JS", "Node", "Redux"];
   }
   listSubjects() {
     return `Loving ${this.favSubjects}!`;
